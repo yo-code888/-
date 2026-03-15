@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>審査員運みくじ</title>
+
+<style>
+
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+background:linear-gradient(135deg,#111,#222);
+color:white;
+text-align:center;
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+p{
+color:#aaa;
+}
+
+button{
+margin-top:30px;
+padding:15px 40px;
+font-size:18px;
+border:none;
+border-radius:30px;
+background:#ff3b30;
+color:white;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+.result{
+margin-top:40px;
+font-size:28px;
+font-weight:bold;
+}
+
+.comment{
+margin-top:10px;
+color:#ccc;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:20px;
+backdrop-filter:blur(10px);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>審査員運みくじ</h1>
+
+<p>今日の審査員の運勢を占います</p>
+
+<button onclick="drawOmikuji()">引く</button>
+
+<div class="result" id="result"></div>
+<div class="comment" id="comment"></div>
+
+</div>
+
+<script>
+
+function drawOmikuji(){
+
+const fortunes=[
+
+{result:"大吉",comment:"今日は神審査員の日。離れが決まれば合格の予感。"},
+{result:"吉",comment:"しっかりした射なら評価される日。落ち着いて引こう。"},
+{result:"中吉",comment:"審査員は厳しめ。でも丁寧な射ならチャンスあり。"},
+{result:"小吉",comment:"射形をよく見られる日。基本を意識しよう。"},
+{result:"末吉",comment:"微妙な日。気合と集中で流れを変えよう。"},
+{result:"凶",comment:"今日は辛口審査員かも…でも最後まで諦めない。"},
+{result:"大凶",comment:"審査員の視線が鋭い日。精神力が試される。"}
+
+]
+
+const random=Math.floor(Math.random()*fortunes.length)
+
+document.getElementById("result").innerText=fortunes[random].result
+document.getElementById("comment").innerText=fortunes[random].comment
+
+}
+
+</script>
+
+</body>
+</html>
